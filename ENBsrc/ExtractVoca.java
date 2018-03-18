@@ -1,14 +1,12 @@
 package gather_data;
-//统计42个文档 每个文档中 词数
+//统计总次数
 import java.io.*;
 import java.util.*;
 
-public class tag42_voca_num {
+public class ExtractVoca {
 	private static Map<String, Integer> vocdmap = new HashMap<>();//存储词和频率
 	private static String pathread = "E:\\科研训练\\用户画像\\testwen\\tag42分词\\";//读取文件的父地址
-	private static String pathwrt = "E:\\科研训练\\用户画像\\testwen\\42文档词数\\";//存储文件的父地址
 	private static String []  filename = new String[42];//要读取的42个标签文档地址
-	private static String []  wrtfilename = new String[42];//存储42个标签文档词数地址
 	private static String []  tag = { "web开发", "并行及分布式计算", "大数据技术", "地理信息系统", "电子商务", "多媒体处理", "机器人", "机器学习", "计算机辅助工程",
 			"计算机视觉", "企业信息化", "嵌入式开发", "人工智能", "人机交互", "人脸识别", "软件工程", "商业智能", "深度学习", "数据恢复", "数据可视化", "数据库", "数据挖掘",
 			"算法", "图像处理", "推荐系统", "网络管理与维护", "网络与通信", "文字识别", "物联网", "系统运维", "项目管理", "信息安全", "虚拟化", "虚拟现实", "移动开发",
@@ -21,13 +19,11 @@ public class tag42_voca_num {
 		//
 		FileInputStream inputStream = null;
 		Scanner sc = null;
-		PrintWriter ffe = null;
-		ffe = new PrintWriter("E:\\科研训练\\用户画像\\testwen\\42tag_vocd_num.txt");
+		
 		PrintWriter fw = null;
 		//创建保存文件路径
 		for (int i = 0; i < 42; i++) {
 			filename[i] = pathread + tag[i] + ".txt";// 读取文件父路径+名称+文件类型 
-			wrtfilename[i] = pathwrt+tag[i] + ".txt";
 			
 		}
 		
@@ -37,9 +33,20 @@ public class tag42_voca_num {
 			{
 				inputStream = new FileInputStream(filename[tagnu]);
 				sc = new Scanner(inputStream, "GB2312");
-				fw = new PrintWriter(wrtfilename[tagnu]);
+				fw = new PrintWriter("E:\\科研训练\\用户画像\\testwen\\vocdmap.txt");
 				while (sc.hasNextLine()) {//判断还有没有下一句
 					String[] linelab = sc.nextLine().split("\\,");
+					
+					
+			
+					/*for (int linenu= 8; linenu < linelab.length; linenu++) {
+						System.out.println(linelab[linenu]);
+					}
+			
+		}
+	}
+}*/
+
 					for (int linenu= 8; linenu < linelab.length; linenu++) {
 						if((linelab[linenu].length()==0)||(linelab[linenu].indexOf("w")>0)) {
 							//System.out.println(linelab[linenu]);
@@ -61,28 +68,19 @@ public class tag42_voca_num {
 					//throw sc.ioException();
 				//}
 			}
-				Iterator ii = vocdmap.keySet().iterator();
-				int allnum =0;
-				 while (ii.hasNext()) {
-				        String word = ii.next().toString();
-				        
-				        int num =vocdmap.get(word);
-				        allnum =num+allnum;
-				        fw.println(word + "|" + num);
-				        
-				      }
-				 ffe.println(tag[tagnu]+allnum);
-				 vocdmap.clear();
 			}
 			finally{
 				
 			}
 		}
-		
-	     
+		Iterator ii = vocdmap.keySet().iterator();
+	      while (ii.hasNext()) {
+	        String word = ii.next().toString();
+	        int num =vocdmap.get(word);
+	        fw.println(word + "|" + num);
+	      }
 		inputStream.close();
 		sc.close();
-		ffe.close();
 		fw.close();							
 	}
 	
