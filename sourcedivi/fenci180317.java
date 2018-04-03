@@ -1,5 +1,5 @@
 package sourcedivi;
-//ÎäÅôÑŞµÄ·Ö´Ê
+//æ­¦é¹è‰³çš„åˆ†è¯
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,13 +23,13 @@ public class fenci180317  {
     public static void main(String[] args) throws IOException {  
 
       /** 
-13.         * ÎªÁËÌá¸ßĞ´ÈëµÄĞ§ÂÊ£¬Ê¹ÓÃÁË×Ö·ûÁ÷µÄ»º³åÇø¡£ 
-14.         * ´´½¨ÁËÒ»¸ö×Ö·ûĞ´ÈëÁ÷µÄ»º³åÇø¶ÔÏó£¬²¢ºÍÖ¸¶¨Òª±»»º³åµÄÁ÷¶ÔÏóÏà¹ØÁª¡£ 
+13.         * ä¸ºäº†æé«˜å†™å…¥çš„æ•ˆç‡ï¼Œä½¿ç”¨äº†å­—ç¬¦æµçš„ç¼“å†²åŒºã€‚ 
+14.         * åˆ›å»ºäº†ä¸€ä¸ªå­—ç¬¦å†™å…¥æµçš„ç¼“å†²åŒºå¯¹è±¡ï¼Œå¹¶å’ŒæŒ‡å®šè¦è¢«ç¼“å†²çš„æµå¯¹è±¡ç›¸å…³è”ã€‚ 
          */  
 Hashtable<String, Integer>  wordCount = new Hashtable<String, Integer>();
-File fileIn= new File("G:\\UÅÌ\\jiegou\\web¿ª·¢.txt");
+File fileIn= new File("G:\\Uç›˜\\jiegou\\webå¼€å‘.txt");
 
-File fileOut= new File("C:\\Users\\Administrator\\Desktop\\×÷Òµ\\qqq.txt");
+File fileOut= new File("C:\\Users\\Administrator\\Desktop\\ä½œä¸š\\qqq.txt");
 
  
 
@@ -66,10 +66,10 @@ while ((s=reader.readLine())!=null) {
 
 //if the number of the word is 1,output the word and the number
 
-//½«map.entrySet()×ª»»³Élist  
+//å°†map.entrySet()è½¬æ¢æˆlist  
 List<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>(wordCount.entrySet());  
 Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {  
-    //½µĞòÅÅĞò  
+    //é™åºæ’åº  
     public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {  
         //return o1.getValue().compareTo(o2.getValue());  
         return o2.getValue().compareTo(o1.getValue());  
@@ -82,7 +82,7 @@ for (Map.Entry<String, Integer> mapping : list) {
 }  
      Writer.write(String.valueOf(count));
      Writer.flush();  
-     //¹Ø±Õ»º³åÇø,Í¬Ê±¹Ø±ÕÁËÁ÷¶ÔÏó  
+     //å…³é—­ç¼“å†²åŒº,åŒæ—¶å…³é—­äº†æµå¯¹è±¡  
      Writer.close();
      
     }

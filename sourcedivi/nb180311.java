@@ -1,5 +1,5 @@
 package sourcedivi;
-//²©¿Í ±´Ò¶Ë¹Ëã·¨
+//åšå®¢ è´å¶æ–¯ç®—æ³•
 	import java.util.ArrayList;
 	import java.util.Map.Entry;
 	import java.util.TreeMap;
@@ -13,12 +13,12 @@ package sourcedivi;
 	}
 	public class nb180311 {
 	      public static Node trainMultinomialNB(ArrayList<String> classSet, TreeMap<String,String> trainingSet){
-	          // µ¥´Ê³öÏÖ¶à´Î£¬Ö»ËãÒ»¸ö£¬ExtractVocabulary(D),¼ÆËã´Ê»ã±í´óĞ¡
+	          // å•è¯å‡ºç°å¤šæ¬¡ï¼Œåªç®—ä¸€ä¸ªï¼ŒExtractVocabulary(D),è®¡ç®—è¯æ±‡è¡¨å¤§å°
 	          ArrayList<String> V=new ArrayList<String>();
 	          for(int i=0;i<trainingSet.size();i++){
 	              for(Entry<String, String> entry:trainingSet.entrySet()){
 	                 String str=entry.getKey();
-	                 String[] strs=str.split(" ");        //¸ù¾İ¿Õ¸ñÇĞ¸î×Ö·û´®
+	                 String[] strs=str.split(" ");        //æ ¹æ®ç©ºæ ¼åˆ‡å‰²å­—ç¬¦ä¸²
 	                 for(String word:strs){
 	                     if(!V.contains(word)){
 	                      V.add(word);
@@ -26,38 +26,38 @@ package sourcedivi;
 	                 }
 	              }
 	          }
-	          //countDoc£¬¼ÆËãÑµÁ·¼¯ºÏÖĞµÄÎÄµµ×ÜÊı
+	          //countDocï¼Œè®¡ç®—è®­ç»ƒé›†åˆä¸­çš„æ–‡æ¡£æ€»æ•°
 	          double N=trainingSet.size();
 	          double[] prior=new double[classSet.size()];
 	          double[][] condprob=new double[V.size()][classSet.size()];
 	          int i=0;
 	          for(String c:classSet){
-	              //CountDocsInClass,¼ÆËãNc£¬NcÎªÑµÁ·¼¯ºÏÖĞc ÀàËù°üº¬µÄÎÄµµÊıÄ¿
+	              //CountDocsInClass,è®¡ç®—Ncï¼ŒNcä¸ºè®­ç»ƒé›†åˆä¸­c ç±»æ‰€åŒ…å«çš„æ–‡æ¡£æ•°ç›®
 	              double Nc=0;
 	              String text="";
 	              for(Entry<String, String> entry:trainingSet.entrySet()){
 	                  if(entry.getValue().equals(c)){
 	                      Nc++;
-	                      text+=entry.getKey();     //½«Àà±ğcÏÂµÄÎÄµµÁ¬½Ó³ÉÒ»¸ö´ó×Ö·û´®,concatenatetextofalldocinclass
+	                      text+=entry.getKey();     //å°†ç±»åˆ«cä¸‹çš„æ–‡æ¡£è¿æ¥æˆä¸€ä¸ªå¤§å­—ç¬¦ä¸²,concatenatetextofalldocinclass
 	                      text+=" ";
 	                  } 
 	              }
-	              prior[i]=Nc/N;                       //¼ÆËãÏÈÑé¸ÅÂÊ
-	              String[] texts=text.split(" ");     //¸ù¾İ¿Õ¸ñÇĞ¸î×Ö·û´®
+	              prior[i]=Nc/N;                       //è®¡ç®—å…ˆéªŒæ¦‚ç‡
+	              String[] texts=text.split(" ");     //æ ¹æ®ç©ºæ ¼åˆ‡å‰²å­—ç¬¦ä¸²
 	              double[] Tct=new double[V.size()];      
 	              int j=0;
-	              // ¼ÆËãÀàcÏÂµ¥´ÊtµÄ³öÏÖ´ÎÊıTct,CountTokenOfTerms
+	              // è®¡ç®—ç±»cä¸‹å•è¯tçš„å‡ºç°æ¬¡æ•°Tct,CountTokenOfTerms
 	              for(String t:V){
 	                  double count=0;
 	                  for(String word:texts){     
-	                      if(t.equals(word)){        //×¢Òâ£¬²»ÄÜÊ¹ÓÃ==            
+	                      if(t.equals(word)){        //æ³¨æ„ï¼Œä¸èƒ½ä½¿ç”¨==            
 	                          count++;   
 	                      }
 	                  }
 	                  Tct[j]=count;
 	                  j++;
 	              }     
-	              //¼ÆËãÌõ¼ş¸ÅÂÊ µÄ¹À¼ÆÖµÎªtÔÚc ÀàÎÄµµÖĞ³öÏÖµÄÏà¶ÔÆµÂÊ
+	              //è®¡ç®—æ¡ä»¶æ¦‚ç‡ çš„ä¼°è®¡å€¼ä¸ºtåœ¨c ç±»æ–‡æ¡£ä¸­å‡ºç°çš„ç›¸å¯¹é¢‘ç‡
 	              double Sigma=0;
 	              for(int x=0;x<Tct.length;x++){
 	                  Sigma+=Tct[x];       
@@ -67,26 +67,26 @@ package sourcedivi;
 	              }  
 	              i++;
 	          }  
-	          Node node=new Node();           //ÓÃ½á¹¹Ìå·µ»Ø¶à¸ö½á¹û
+	          Node node=new Node();           //ç”¨ç»“æ„ä½“è¿”å›å¤šä¸ªç»“æœ
 	          node.V=V;
 	          node.prior=prior;
 	          node.condprob=condprob;  
-	          return node;               //·µ»ØÀànode
+	          return node;               //è¿”å›ç±»node
 	      }
 	      public static double[] applyMultinomialNB(ArrayList<String> classSet,ArrayList<String> V,double[] prior,
 	                                     double[][]condprob,ArrayList<String> testingSet){  
 	          double[] scores=new double[classSet.size()];  
-	          for(int i=0;i<testingSet.size();i++){               //±éÀú²âÊÔ¼¯
+	          for(int i=0;i<testingSet.size();i++){               //éå†æµ‹è¯•é›†
 	              ArrayList<String> W=new ArrayList<String>();
-	              // EXTRACTOKENSFROMDoc,½«ÎÄµµdÖĞµÄµ¥´Ê³éÈ¡³öÀ´£¬ÔÊĞíÖØ¸´£¬Èç¹ûµ¥´ÊÊÇÈ«ĞÂµÄ£¬ÔÚÈ«¾Öµ¥´Ê±íVÖĞ¶¼Ã»³öÏÖ¹ı£¬ÔòºöÂÔµô
+	              // EXTRACTOKENSFROMDoc,å°†æ–‡æ¡£dä¸­çš„å•è¯æŠ½å–å‡ºæ¥ï¼Œå…è®¸é‡å¤ï¼Œå¦‚æœå•è¯æ˜¯å…¨æ–°çš„ï¼Œåœ¨å…¨å±€å•è¯è¡¨Vä¸­éƒ½æ²¡å‡ºç°è¿‡ï¼Œåˆ™å¿½ç•¥æ‰
 	              String str=testingSet.get(i);       
-	              String[] strs=str.split(" ");        //¸ù¾İ¿Õ¸ñÇĞ¸î×Ö·û´®  
+	              String[] strs=str.split(" ");        //æ ¹æ®ç©ºæ ¼åˆ‡å‰²å­—ç¬¦ä¸²  
 	              for(String word:strs){
 	                 if(V.contains(word)){
 	                     W.add(word);
 	                 }
 	              }
-	            //¼ÆËãºóÑé¸ÅÂÊ        
+	            //è®¡ç®—åéªŒæ¦‚ç‡        
 	              int index=0;
 	              scores=new double[classSet.size()];   
 	              for(int j=0;j<classSet.size();j++){
@@ -100,10 +100,10 @@ package sourcedivi;
 	                      scores[j]+=Math.log(condprob[index][j]);      
 	                  }
 	              }
-	              if(scores[0]>scores[1]){                      //±È½ÏÁ½¸ö×î´óºóÑé¸ÅÂÊ£¬
-	                  System.out.println("²âÊÔ¼¯ÊôÓÚÀàyes");
+	              if(scores[0]>scores[1]){                      //æ¯”è¾ƒä¸¤ä¸ªæœ€å¤§åéªŒæ¦‚ç‡ï¼Œ
+	                  System.out.println("æµ‹è¯•é›†å±äºç±»yes");
 	              }else{
-	                  System.out.println("²âÊÔ¼¯ÊôÓÚÀàno");
+	                  System.out.println("æµ‹è¯•é›†å±äºç±»no");
 	              }
 	          }   
 	          return scores;
@@ -112,26 +112,26 @@ package sourcedivi;
 	          ArrayList<String> doc=new ArrayList<String>();
 	          ArrayList<String> testingSet=new ArrayList<String>();
 	          ArrayList<String> classSet=new ArrayList<String>();
-	          //³õÊ¼»¯ÑµÁ·¼¯
-	          doc.add("Chinese Beijing Chinese");          //ÊôÓÚÀà±ğChina
-	          doc.add("Chinese Chinese Shanghai");         //ÊôÓÚÀà±ğChina
-	          doc.add("Chinese Macao");                    //ÊôÓÚÀà±ğChina
-	          doc.add("Tokyo Japan Chinese");              //²»ÊôÓÚÀà±ğChina
+	          //åˆå§‹åŒ–è®­ç»ƒé›†
+	          doc.add("Chinese Beijing Chinese");          //å±äºç±»åˆ«China
+	          doc.add("Chinese Chinese Shanghai");         //å±äºç±»åˆ«China
+	          doc.add("Chinese Macao");                    //å±äºç±»åˆ«China
+	          doc.add("Tokyo Japan Chinese");              //ä¸å±äºç±»åˆ«China
 	          TreeMap<String,String> trainingSet=new TreeMap<String,String>();
 	          for(int i=0;i<doc.size()-1;i++){
 	              trainingSet.put(doc.get(i),"yes");
 	          }
 	          trainingSet.put(doc.get(doc.size()-1),"no");
-	          //³õÊ¼»¯²âÊÔ¼¯
+	          //åˆå§‹åŒ–æµ‹è¯•é›†
 	          testingSet.add("Chinese Chinese Chinese Tokyo Japan");    
-	          //³õÊ¼»¯Àà±ğ¼¯ºÏ
+	          //åˆå§‹åŒ–ç±»åˆ«é›†åˆ
 	          classSet.add("yes");
 	          classSet.add("no");
 	          Node node=new Node();
 	          node=trainMultinomialNB(classSet,trainingSet);
 	          double[] scores;
 	          scores=applyMultinomialNB(classSet,node.V,node.prior,node.condprob,testingSet);
-	          //Êä³ö½á¹û
+	          //è¾“å‡ºç»“æœ
 	          for(double score:scores){
 	              System.out.println(score);
 	          }  

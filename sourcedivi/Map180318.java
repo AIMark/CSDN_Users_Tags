@@ -1,12 +1,12 @@
 package sourcedivi;
-//建立字节Hashmap
+//寤虹珛瀛楄妭Hashmap
 import java.io.*;
 import java.util.*;
 public class Map180318  {
 
     //private static Map<String, String> map = new HashMap<>();
-    public static String FILE_PATH = "E:\\科研训练\\用户画像\\SMPCUP2017数据集\\1_BlogContent.txt";
-    private final static String OBJECT_FILE = "E:\\科研训练\\用户画像\\testwen\\字节Map\\BitMap1.txt";
+    public static String FILE_PATH = "E:\\绉戠爺璁粌\\鐢ㄦ埛鐢诲儚\\SMPCUP2017鏁版嵁闆哱\1_BlogContent.txt";
+    private final static String OBJECT_FILE = "E:\\绉戠爺璁粌\\鐢ㄦ埛鐢诲儚\\testwen\\瀛楄妭Map\\BitMap1.txt";
 
 public static void main(String [] args) throws Exception {
 	 	FileInputStream inputStream = null;

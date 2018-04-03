@@ -1,21 +1,21 @@
 package sourcedivi;
-//ÅÅ³ı42¸ö ´ÊÆµÎÄµµ ÖĞµÄ ²»¿ÉÓÃÊı¾İ
+//æ’é™¤42ä¸ª è¯é¢‘æ–‡æ¡£ ä¸­çš„ ä¸å¯ç”¨æ•°æ®
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class te180312 {
-	private static String pathwrt = "E:\\¿ÆÑĞÑµÁ·\\ÓÃ»§»­Ïñ\\testwen\\42ÎÄµµ´ÊÊı\\";
+	private static String pathwrt = "E:\\ç§‘ç ”è®­ç»ƒ\\ç”¨æˆ·ç”»åƒ\\testwen\\42æ–‡æ¡£è¯æ•°\\";
 	private static HashMap<Object,Integer> four_tag_map= new HashMap<>();
-	private static String []  tag = {"web¿ª·¢", "²¢ĞĞ¼°·Ö²¼Ê½¼ÆËã", "´óÊı¾İ¼¼Êõ", "µØÀíĞÅÏ¢ÏµÍ³", "µç×ÓÉÌÎñ", "¶àÃ½Ìå´¦Àí", "»úÆ÷ÈË", "»úÆ÷Ñ§Ï°", "¼ÆËã»ú¸¨Öú¹¤³Ì",
-			"¼ÆËã»úÊÓ¾õ", "ÆóÒµĞÅÏ¢»¯", "Ç¶ÈëÊ½¿ª·¢", "ÈË¹¤ÖÇÄÜ", "ÈË»ú½»»¥", "ÈËÁ³Ê¶±ğ", "Èí¼ş¹¤³Ì", "ÉÌÒµÖÇÄÜ", "Éî¶ÈÑ§Ï°", "Êı¾İ»Ö¸´", "Êı¾İ¿ÉÊÓ»¯", "Êı¾İ¿â", "Êı¾İÍÚ¾ò",
-			"Ëã·¨", "Í¼Ïñ´¦Àí", "ÍÆ¼öÏµÍ³", "ÍøÂç¹ÜÀíÓëÎ¬»¤", "ÍøÂçÓëÍ¨ĞÅ", "ÎÄ×ÖÊ¶±ğ", "ÎïÁªÍø", "ÏµÍ³ÔËÎ¬", "ÏîÄ¿¹ÜÀí", "ĞÅÏ¢°²È«", "ĞéÄâ»¯", "ĞéÄâÏÖÊµ", "ÒÆ¶¯¿ª·¢",
-			"Ó²¼ş", "ÓÎÏ·¿ª·¢", "ÓïÒôÊ¶±ğ", "ÔÆ¼ÆËã", "ÔöÇ¿ÏÖÊµ", "×ÀÃæ¿ª·¢", "×ÔÈ»ÓïÑÔ´¦Àí" };
-	private static String []  filename11 = new String[42];//42¸öÎÄ¼şµØÖ·
+	private static String []  tag = {"webå¼€å‘", "å¹¶è¡ŒåŠåˆ†å¸ƒå¼è®¡ç®—", "å¤§æ•°æ®æŠ€æœ¯", "åœ°ç†ä¿¡æ¯ç³»ç»Ÿ", "ç”µå­å•†åŠ¡", "å¤šåª’ä½“å¤„ç†", "æœºå™¨äºº", "æœºå™¨å­¦ä¹ ", "è®¡ç®—æœºè¾…åŠ©å·¥ç¨‹",
+			"è®¡ç®—æœºè§†è§‰", "ä¼ä¸šä¿¡æ¯åŒ–", "åµŒå…¥å¼å¼€å‘", "äººå·¥æ™ºèƒ½", "äººæœºäº¤äº’", "äººè„¸è¯†åˆ«", "è½¯ä»¶å·¥ç¨‹", "å•†ä¸šæ™ºèƒ½", "æ·±åº¦å­¦ä¹ ", "æ•°æ®æ¢å¤", "æ•°æ®å¯è§†åŒ–", "æ•°æ®åº“", "æ•°æ®æŒ–æ˜",
+			"ç®—æ³•", "å›¾åƒå¤„ç†", "æ¨èç³»ç»Ÿ", "ç½‘ç»œç®¡ç†ä¸ç»´æŠ¤", "ç½‘ç»œä¸é€šä¿¡", "æ–‡å­—è¯†åˆ«", "ç‰©è”ç½‘", "ç³»ç»Ÿè¿ç»´", "é¡¹ç›®ç®¡ç†", "ä¿¡æ¯å®‰å…¨", "è™šæ‹ŸåŒ–", "è™šæ‹Ÿç°å®", "ç§»åŠ¨å¼€å‘",
+			"ç¡¬ä»¶", "æ¸¸æˆå¼€å‘", "è¯­éŸ³è¯†åˆ«", "äº‘è®¡ç®—", "å¢å¼ºç°å®", "æ¡Œé¢å¼€å‘", "è‡ªç„¶è¯­è¨€å¤„ç†" };
+	private static String []  filename11 = new String[42];//42ä¸ªæ–‡ä»¶åœ°å€
 	public static void main(String[] args) {
 		for (int i = 0; i < 42; i++) {
-			filename11[i] = pathwrt + tag[i] + ".txt";// ¶ÁÈ¡ÎÄ¼ş¸¸Â·¾¶+Ãû³Æ+ÎÄ¼şÀàĞÍ 
+			filename11[i] = pathwrt + tag[i] + ".txt";// è¯»å–æ–‡ä»¶çˆ¶è·¯å¾„+åç§°+æ–‡ä»¶ç±»å‹ 
 			
 		}
 		FileInputStream inputStream = null;
@@ -24,12 +24,12 @@ public class te180312 {
              try {
 				inputStream = new FileInputStream(filename11[tagnu]);
 			} catch (FileNotFoundException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 			}
-				sc = new Scanner(inputStream, "GB2312");
+				sc = new Scanner(inputStream);
 				
-				while (sc.hasNextLine()) {//ÅĞ¶Ï»¹ÓĞÃ»ÓĞÏÂÒ»¾ä
+				while (sc.hasNextLine()) {//åˆ¤æ–­è¿˜æœ‰æ²¡æœ‰ä¸‹ä¸€å¥
 					String[] linelab = sc.nextLine().split("\\|");
 					//System.out.println(linelab[0]+"|"+Integer.valueOf(linelab[1])+"   "+tag[tagnu]);
 					four_tag_map.put(linelab[0],Integer.valueOf(linelab[1]));	

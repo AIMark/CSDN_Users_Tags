@@ -1,21 +1,19 @@
 package sourcedivi;
 
-//ÓÃNB½øĞĞÑéÖ¤¼¯²âÊÔ
+//æµ‹è¯• æ”¶é›†æµ‹è¯•é›† æ–‡æ¡£ çš„æµ‹è¯•ç¨‹åº
 import java.util.*;
-import com.hankcs.hanlp.HanLP;
-
 import java.io.*;
 public class te180318 {
-	private static Map<String, String> postmap = new HashMap<>();//´æ´¢ÓÃ»§¶ÔÓ¦·¢±íµÄ²©¿Í±àºÅHashMap
-	private static Map<String, String> bittmap = new HashMap<>();//´æ´¢¾äÊ×ºÍ¾äÎ²Î»ÖÃµÄHashMap
+	/*private static Map<String, String> postmap = new HashMap<>();//å­˜å‚¨ç”¨æˆ·å¯¹åº”å‘è¡¨çš„åšå®¢ç¼–å·HashMap
+	private static Map<String, String> bittmap = new HashMap<>();//å­˜å‚¨å¥é¦–å’Œå¥å°¾ä½ç½®çš„HashMap
 	
-	//½¨Á¢´æ´¢¾äÊ×ºÍ¾äÎ²µÄHashMap
+	//å»ºç«‹å­˜å‚¨å¥é¦–å’Œå¥å°¾çš„HashMap
 	public static void satbitmap() throws IOException{
 		try {
 			String bittmapline;
 			FileInputStream bittmapblog = null;
 			Scanner bittmapscan = null;
-			bittmapblog = new FileInputStream("E:\\¿ÆÑĞÑµÁ·\\ÓÃ»§»­Ïñ\\testwen\\×Ö½ÚMap\\BitMap1.txt");
+			bittmapblog = new FileInputStream("E:\\ç§‘ç ”è®­ç»ƒ\\ç”¨æˆ·ç”»åƒ\\testwen\\å­—èŠ‚Map\\BitMap1.txt");
 			bittmapscan = new Scanner(bittmapblog);
 			int num=0;
 			while (((++num <1000001)  &&((bittmapline = bittmapscan.nextLine()) != null)  ) ) {					
@@ -32,13 +30,13 @@ public class te180318 {
 		}
 	}
 	
-	//½¨Á¢´æ´¢´æ´¢ÓÃ»§¶ÔÓ¦·¢±íµÄ²©¿Í±àºÅHashMap(Ò»¸öÓÃ»§¶ÔÓ¦¶àÆªÎÄµµ)
+	//å»ºç«‹å­˜å‚¨å­˜å‚¨ç”¨æˆ·å¯¹åº”å‘è¡¨çš„åšå®¢ç¼–å·HashMap(ä¸€ä¸ªç”¨æˆ·å¯¹åº”å¤šç¯‡æ–‡æ¡£)
 	public static void satpostmap() throws IOException{
 		try {
 			String postmapline;
 			FileInputStream postmapblog = null;
 			Scanner postmapscan = null;
-			postmapblog = new FileInputStream("E:\\¿ÆÑĞÑµÁ·\\ÓÃ»§»­Ïñ\\SMPCUP2017Êı¾İ¼¯\\2_Post.txt");
+			postmapblog = new FileInputStream("E:\\ç§‘ç ”è®­ç»ƒ\\ç”¨æˆ·ç”»åƒ\\SMPCUP2017æ•°æ®é›†\\2_Post.txt");
 			postmapscan = new Scanner(postmapblog);
 			int num=0;
 			while (((++num <1000001)  &&((postmapline = postmapscan.nextLine()) != null)  ) ) {					
@@ -59,72 +57,78 @@ public class te180318 {
 			} finally {
 							
 		}
-	}
+	}*/
 	public static void main(String [] args)throws IOException {
-		//satbitmap();
-		//satpostmap();
-		//¶ÁÈ¡ÑéÖ¤¼¯
+
 		FileInputStream traindatainpu = null;
 		Scanner traindataout = null;
-		PrintWriter fw =  new PrintWriter("E:\\¿ÆÑĞÑµÁ·\\ÓÃ»§»­Ïñ\\testwen\\tes.txt","UTF-8");
-		traindatainpu = new FileInputStream("E:\\¿ÆÑĞÑµÁ·\\ÓÃ»§»­Ïñ\\testwen\\×Ö½ÚMap\\BitMap1.txt");
+		
+		traindatainpu = new FileInputStream("E:\\ç§‘ç ”è®­ç»ƒ\\ç”¨æˆ·ç”»åƒ\\testwen\\å­—èŠ‚Map\\BitMap1.txt");
 		traindataout = new Scanner(traindatainpu);
-		//¶ÁÈ¡²âÊÔ¼¯²¢²éÕÒ¶ÔÓ¦²©¿Í£¬´¦Àí±È½Ï
-		//String blogline =null;
-		//String strlin =null;
+		//è¯»å–æµ‹è¯•é›†å¹¶æŸ¥æ‰¾å¯¹åº”åšå®¢ï¼Œå¤„ç†æ¯”è¾ƒ
+
 		long lineStart=0;
 		long lineEnd =0;
 		long zhongjain =0;
 		int num = 0;
-		//int i = 0;
-		//while(traindataout.hasNextLine()&&i<1) {
+		//File file = new File("E:\\ç§‘ç ”è®­ç»ƒ\\ç”¨æˆ·ç”»åƒ\\SMPCUP2017æ•°æ®é›†\\1_BlogContent.txt");
+		//BufferedReader reader = new BufferedReader(new FileReader(file));
+		//BufferedReaderæœ‰ä¸€ä¸ªskip()æ–¹æ³•ï¼Œ
+		//reader.mark((int)file.length()+1);
+		PrintWriter fw =  new PrintWriter("E:\\ç§‘ç ”è®­ç»ƒ\\ç”¨æˆ·ç”»åƒ\\testwen\\tes11.txt","utf-8");
+		while(++num<6) {
+			//traindataout.nextLine();
 			
-			//String [] argsblogli = traindataout.nextLine().split("");//ÑéÖ¤¼¯ÓÃ»§¼ÓÉÏÈı¸öĞËÈ¤
-			//if(postmap.get(argsblogli[0])==null) {
-			//	System.out.println("ÎÄµµÖĞÎŞÓÃ»§±àºÅÎª"+argsblogli[0]+"·¢±íµÄ²©¿Í£¬ËùÒÔÎŞ·¨Ô¤²â´ËÓÃ»§ĞËÈ¤");
-			//}
-			//else {
-			//System.out.println(blogline);
-		while(++num<10000) {
-		  ////blogline = traindataout.nextLine();
-			String [] split = traindataout.nextLine().split("_");//ÓÃ»§·¢±íµÄËùÓĞ²©¿Í
-			//for(int postnum=0;postnum<strpostnu.length;postnum++) {
-				//String[] split = (bittmap.get("D0098736")).split("_");
+			String [] split = traindataout.nextLine().split("_");//ç”¨æˆ·å‘è¡¨çš„æ‰€æœ‰åšå®¢
+			
 				lineStart = Long.parseLong(split[1]);
 		        lineEnd = Long.parseLong(split[2]);
 		        zhongjain =lineEnd - lineStart;
-		        try (RandomAccessFile randomAccessFile = new RandomAccessFile("E:\\¿ÆÑĞÑµÁ·\\ÓÃ»§»­Ïñ\\SMPCUP2017Êı¾İ¼¯\\1_BlogContent.txt", "r")) {
+		        try (RandomAccessFile randomAccessFile = new RandomAccessFile("E:\\ç§‘ç ”è®­ç»ƒ\\ç”¨æˆ·ç”»åƒ\\SMPCUP2017æ•°æ®é›†\\1_BlogContent.txt", "r")) {
 		            randomAccessFile.seek(lineStart);
 		            //System.out.println(lineStart);
-		            byte[] bytes = new byte[(int) (zhongjain + 1)];
-		            for (int niui = 0; niui < bytes.length; niui++) {
-		                bytes[niui] = randomAccessFile.readByte();
+		           //String[] bytes = new String[(int) (zhongjain + 1)];
+		           byte[] bytes = new byte[(int) (zhongjain + 1)];
+		          for (int niui = 0; niui < bytes.length; niui++) {		            	
+		                //bytes[niui] = randomAccessFile.readUTF();
+		            	bytes[niui] = randomAccessFile.readByte();
+		               // System.out.println(String.valueOf(bytes[niui]));
 		            }
-		            //new String(randomAccessFile.readline().getBytes("ISO-8859-1", "utf-8")
-		            //strlin += new String(bytes);
-		            //System.out.println(new String(bytes));
-		            String linsd = new String(bytes);
-		            //linsd.getBytes(),"utf-8");
-		            //fw.println(linsd);
-		           fw.println(new String(linsd.getBytes(),"UTF-8"));
-		           //System.out.println(1);"¿ªÊ¼"+lineStart+"½áÊø"+lineEnd+"¾àÀë"+zhongjain+"ÎÄÕÂ"+
-		        } 
+		           //reader.skip(lineStart);
+		           //fw.println(reader.readLine());
+		           //reader.reset();
+		           //String kik =   reader.readLine();
+		           //kik=kik.getBytes("ISO-8859-1"),"utf-8"));
+		           //System.out.println(kik);
+		           //reader.reset();
 		        
-			//}
-			//strlin = String.valueOf(HanLP.segment(strlin));
-			
-			//}
-			//i++;
-		}
+		            String linsd = new String(bytes);
+		            //String kkk = new String(linsd.getBytes("ISO-8859-1"),"utf-8");
+		            //System.out.println(String.valueOf(bytes));
+		            
+		            		//bytes.toString();  
+		           // System.out.println(new String(linsd.getBytes("ISO-8859-1"),"utf-8"));
+		         
+		            fw.println(new String(linsd));
+		          //System.out.println(new String(linsd.getBytes("ISO-8859-1"),"utf-8"));
+		          //System.out.println(kkk);
+		           
+		           //fw.printf(new String(randomAccessFile.readLine().getBytes("8859-1"),"utf-8"));
+
+		        } 
+
+		
 	     // find label in map
       
       
       
-    
+   // reader.close();
+		
+		
+		
+	}
 		fw.close();
 		traindatainpu.close();
 		traindataout.close();
-		
-	}
 }
-
+}
