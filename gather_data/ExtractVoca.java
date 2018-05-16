@@ -1,5 +1,5 @@
 package gather_data;
-//统计总次数
+//统计总词数
 import java.io.*;
 import java.util.*;
 

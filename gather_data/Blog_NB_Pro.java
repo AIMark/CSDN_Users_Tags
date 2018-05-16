@@ -1,5 +1,5 @@
-package sourcedivi;
-//博客 贝叶斯算法
+package gather_data;
+//博客中 贝叶斯算法
 	import java.util.ArrayList;
 	import java.util.Map.Entry;
 	import java.util.TreeMap;
@@ -11,7 +11,7 @@ package sourcedivi;
 	        V=new ArrayList<String>();
 	    }
 	}
-	public class nb180311 {
+	public class Blog_NB_Pro {
 	      public static Node trainMultinomialNB(ArrayList<String> classSet, TreeMap<String,String> trainingSet){
 	          // 单词出现多次，只算一个，ExtractVocabulary(D),计算词汇表大小
 	          ArrayList<String> V=new ArrayList<String>();

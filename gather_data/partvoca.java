@@ -1,4 +1,4 @@
-package gather_data;//本程序对个文档分词
+package gather_data;//本程序对单个文档分词
 import java.util.*;
 import com.hankcs.hanlp.HanLP;
 import java.io.*;

@@ -1,8 +1,8 @@
-package sourcedivi;
+package gather_data;
 //建立字节Hashmap
 import java.io.*;
 import java.util.*;
-public class Map180318  {
+public class BuildByteHashMap  {
 
     //private static Map<String, String> map = new HashMap<>();
     public static String FILE_PATH = "E:\\科研训练\\用户画像\\SMPCUP2017数据集\\1_BlogContent.txt";

@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import com.hankcs.hanlp.HanLP;
 
-public class nbtest {
+public class Cal_Person_Probability {
 	private static Map<String, String> tagmap = new HashMap<>();//
 	private static Map<String, Integer> tycmap = new HashMap<>();//停用词Map
 	private static String []  tag = { "web开发", "并行及分布式计算", "大数据技术", "地理信息系统", "电子商务", "多媒体处理", "机器人", "机器学习", "计算机辅助工程",
